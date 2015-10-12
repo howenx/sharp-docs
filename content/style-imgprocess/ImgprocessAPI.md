@@ -48,18 +48,24 @@
 #### 请求示例
 > ```
 var formdata = new FormData();
-formdata.append("displayImage", file);
+formdata.append("photo", file);
 formdata.append("params", params);
-$.ajax({
-			url: '/upload', //Server script to process data
-  			type: 'POST',
-  			data: formdata,
-  			processData: false,
-  			contentType: false,
-  			success: function(data) {
-  				alert(data.error)
-  			}
-});
+var http = new XMLHttpRequest();
+var url = "http://172.28.3.18:3008/upload";
+http.open("POST", url, true);
+http.onreadystatechange = function() {
+	if (http.readyState == 4 && http.status == 200) {
+		var data = JSON.parse(http.responseText);
+		alert(data.message);
+		if (typeof data.compress != 'undefined' && data.compress != null) {
+			$('#gpicnm').append('<span style="display:block;margin:10px;width:100%;">第' + ($('#gallery').children().length) + '张图片名称：<b>' + data.imgid + '</b><br><b>压缩前大小:' + data.compress.before + ' 压缩后大小:' + data.compress.after + ' 用时:' + data.compress.time + ' 压缩率:' + data.compress.rate + '</b></span>');
+		}
+		$(':radio[name=select-minify]').each(function(index, element) {
+			$(this).prop('checked', false);
+		})
+	}
+}
+http.send(formdata);
 ```
 
 #### 响应示例
