@@ -22,7 +22,7 @@
 > 图片类型仅仅支持JPEG,PNG,GIF,WEBP格式，并只提供JPEG和PNG格式的压缩，其余格式都是原图存储
 
 #### 请求地址
-> [http://172.28.3.51:3000/upload](http://172.28.3.51:3000/upload)
+> [http://172.28.3.18:3008/upload](http://172.28.3.18:3008/upload)
 
 #### 支持格式
 > JSON
@@ -94,9 +94,9 @@ http.send(formdata);
 > 根据请求后缀直接等比缩放，并以请求的宽度的缩放比来缩放高度
 
 #### 请求地址
-> [http://172.28.3.51:3000/thumb/原图名称_宽×高.jpg](http://172.28.3.51:3000)
+> [http://172.28.3.18:3008/thumb/原图名称_宽×高.jpg](http://172.28.3.18:3008)
 >>URL示例：
-```http://172.28.3.51:3002/thumb/47ddf9b7c38a1debc3f3bfb1b93b4ed7.jpg_750×600.jpg```
+```http://172.28.3.18:3002/thumb/47ddf9b7c38a1debc3f3bfb1b93b4ed7.jpg_750×600.jpg```
 
 #### 支持格式
 > JSON
@@ -105,8 +105,8 @@ http.send(formdata);
 > GET
 
 #### 请求参数
-> 使用RESTful请求方式： ```http://172.28.3.51:3002/thumb/:id```<br>
-> 直接返回缩略图的请求方式： ```http://172.28.3.51:3002/thumb/file/:id```
+> 使用RESTful请求方式： ```http://172.28.3.18:3002/thumb/:id```<br>
+> 直接返回缩略图的请求方式： ```http://172.28.3.18:3002/thumb/file/:id```
 
 #### 返回字段
 > |返回字段|字段类型|说明                              |
@@ -123,7 +123,7 @@ http.send(formdata);
 {
     "error": "000",
     "message": "ok.",
-    "thumb_url": "http://172.28.3.51:3002/uploads/thumb/8fd5f94983140081e30aece7d534f33d.jpg_750\u00d7600.jpg"
+    "thumb_url": "http://172.28.3.18:3002/uploads/thumb/8fd5f94983140081e30aece7d534f33d.jpg_750\u00d7600.jpg"
 }
 ```
 
@@ -136,7 +136,7 @@ http.send(formdata);
 > 根据请求传递的图片名称参数将其分割三份，并返回三份图片的URL
 
 #### 请求地址
-> [http://172.28.3.51:3000/split/file/:id](http://172.28.3.51:3000)
+> [http://172.28.3.18:3008/split/file/:id](http://172.28.3.18:3008)
 
 #### 支持格式
 > JSON
@@ -145,7 +145,7 @@ http.send(formdata);
 > GET
 
 #### 请求参数
-> 使用RESTful请求方式： ```http://172.28.3.51:3002/split/file/:id```<br>
+> 使用RESTful请求方式： ```http://172.28.3.18:3002/split/file/:id```<br>
 
 #### 返回字段
 > |返回字段|字段类型|说明                              |
@@ -175,7 +175,7 @@ http.send(formdata);
 > 根据预先做好的HTML模板，通过传参指定ID来获取对应的模板的截图URL
 
 #### 请求地址
-> [http://172.28.3.51:3000/shotcut/:tempid](http://172.28.3.51:3000)
+> [http://172.28.3.18:3008/shotcut/:tempid](http://172.28.3.18:3008)
 
 #### 支持格式
 > JSON
@@ -184,7 +184,7 @@ http.send(formdata);
 > GET
 
 #### 请求参数
-> 使用RESTful请求方式： ```http://172.28.3.51:3000/shotcut/:tempid```<br>
+> 使用RESTful请求方式： ```http://172.28.3.18:3008/shotcut/:tempid```<br>
 
 #### 返回字段
 > |返回字段|字段类型|说明                              |
